@@ -1,0 +1,45 @@
+<%= form_with(model: search_object, url: 'email_validator', method: :post, local: true) do |f| %>
+  <% if search_object.errors.any? %>
+    <div class="alert alert-danger fade show mt-2" role="alert">
+      <ul class="mb-0 pl-3">
+        <% search_object.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <%= f.label :first_name, class: "small mb-1" %>
+        <%= f.text_field :first_name, class: "form-control" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <%= f.label :last_name, class: "small mb-1" %>
+        <%= f.text_field :last_name, class: "form-control" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <%= f.label :url, class: "small mb-1" %>
+        <%= f.text_field :url, class: "form-control" %>
+        <small id="emailHelp" class="form-text text-muted">Write a valid url without url scheme(http, https)</small>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group mt-4 mb-0">
+    <%= f.submit "Search", class: "btn btn-primary btn-block" %>
+  </div>
+<% end %>
+

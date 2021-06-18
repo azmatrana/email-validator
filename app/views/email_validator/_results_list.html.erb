@@ -1,0 +1,12 @@
+<% if @results.length > 0 %>
+  <hr>
+  <ul class="list-unstyled mt-2">
+    <li>Results
+      <ul>
+        <% @results.each do |r| %>
+          <li> <%= r.email %> </li>
+        <% end %>
+      </ul>
+    </li>
+  </ul>
+<% end %>
